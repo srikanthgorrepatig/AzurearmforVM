@@ -1,1 +1,41 @@
-
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+      {
+        "type": "Microsoft.Compute/virtualMachines",
+        "apiVersion": "2019-03-01",
+        "name": "myfirstvm",
+        "location": "westus",
+        "properties": {
+          "hardwareProfile": {
+            "vmSize": "Standard_DS1_v2"
+          },
+          "osProfile": {
+            "computerName": "myfirstvm",
+            "adminUsername": "srikanthawsos@gmail.com",
+            "adminPassword": "Bhudevi@123"
+          },
+          "storageProfile": {
+            "imageReference": {
+              "publisher": "MicrosoftWindowsServer",
+              "offer": "WindowsServer",
+              "sku": "2019-Datacenter",
+              "version": "latest"
+            },
+            "osDisk": {
+              "createOption": "fromImage"
+            }
+          },
+          "networkProfile": {
+            "networkInterfaces": [
+              {
+                "id": "/subscriptions/5960033c-77b7-45ee-b08f-a53cbf5175e9/resourceGroups/firstresourcegroup/providers/Microsoft.Network/networkInterfaces/firstnic"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+  
